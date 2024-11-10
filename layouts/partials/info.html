@@ -1,4 +1,4 @@
-<div class="head container grid sm:grid-cols-2 grid-cols-1
+<div class="head container grid sm:grid-cols-2-asymm grid-cols-1
             justify-around flex-wrap items-center"
      itemscope itemtype="http://schema.org/Person">
     <div class="picture p-8 max-w-[80%] mx-auto basis-20 grow shrink"
@@ -28,6 +28,31 @@
         {{ end }}
         {{ end }}
         <h2 itemprop="jobTitle" class="text-xl my-0 border-none">{{ .Params.Personal_title }}</h2>
+	    <br>
+	    {{range .Params.Fields }}
+                &middot {{ . }}
+		<br>
+	    {{ end }}
+	    <br>
+	    {{ with .Params.Email }}
+	        E-mail: <a href="mailto:{{ . }}">{{ . }}</a>
+	    {{ end }}
+	    <br>
+	    {{ with .Params.Twitter }}
+	        X (Twitter): <a href="https://twitter.com/{{ . }}">@{{ . }}</a>
+	    {{ end }}
+	    <br>
+	    {{ with .Params.Google_Scholar }}
+	        <a href="{{ . }}">Google Scholar</a>
+	    {{ end }}
+	    <br>
+	    {{ with .Params.GitHub }}
+	    <a href="https://github.com/{{ . }}">GitHub</a>
+	    {{ end }}
+	    <br>
+	    {{ with .Params.Resume }}
+	    <a href="{{ . }}">Resume</a>
+	    {{ end }}
             {{range .Params.Address }}
             <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
             <span itemprop="streetAddress">
@@ -40,7 +65,7 @@
             {{ with .locality }}<span itemprop="addressLocality">{{ . }}</span>{{ end }}
             <br>
             {{ with .email }}
-            <a href="mailto:{{ . }}">{{ . }}</a>
+            E-mail: <a href="mailto:{{ . }}">{{ . }}</a>
             {{ end }}
             {{ with .emailimg }}
             <picture>

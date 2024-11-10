@@ -10,22 +10,22 @@
              class="w-full"/>
     </div>
     <div class="publication grow shrink-2 basis-3/4 my-1.5 mx-2">
+	{{ $num_authors := (len .authors) }}
         {{ range $author_index, $author_val := .authors }}
-        {{ if $author_val.me }}
-        <b>
-        {{ end }}
-            <span itemprop="author">{{- $author_val.name -}}</span>
-            {{- /* Add comma if not last author */ -}}
-            {{- if le $author_index (len .) -}},{{- end -}}
-        {{ if $author_val.me }}
-        </b>
-        {{ end }}
+        {{ if $author_val.me }}<b>{{ end }}
+            <span itemprop="author">{{- $author_val.name -}}</span>{{ if $author_val.me }}</b>{{ end }}
+        {{- /* Add comma if not last author */ -}}
+	{{- if lt $author_index (sub $num_authors 1) -}},{{- end -}}
         {{ end }}
         <br>
         <b>
+            {{ if .pdf }}
             <a href="{{ .pdf }}">
+	    {{ end }}
                 <span itemprop="name">{{ .title }}</span>
+            {{ if .pdf }}
             </a>
+	    {{ end }}
         </b>
         <meta itemprop="headline" content="{{ .title }}"/>
         <br>

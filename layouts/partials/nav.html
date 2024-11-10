@@ -23,6 +23,7 @@
                            01-1-1z" clip-rule="evenodd"></path>
         </svg>
     </button>
+    {{ if .Site.Menus.main }}
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul class="grid md:grid-flow-col items-center justify-between text-lg
                  my-2.5 grid-cols-1 pl-0 text-center">
@@ -46,5 +47,6 @@
         </li>
       </ul>
     </div>
+    {{ end }}
   </div>
 </nav>
