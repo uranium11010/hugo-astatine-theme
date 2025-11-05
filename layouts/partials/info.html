@@ -37,7 +37,7 @@
 	    {{ with .Params.Email }}
 	        E-mail: <a href="mailto:{{ . }}">{{ . }}</a>
 	    {{ end }}
-	    <br>
+        &nbsp&nbsp&nbsp
 	    {{ with .Params.Twitter }}
 	        X (Twitter): <a href="https://twitter.com/{{ . }}">@{{ . }}</a>
 	    {{ end }}
@@ -45,14 +45,14 @@
 	    {{ with .Params.Google_Scholar }}
 	        <a href="{{ . }}">Google Scholar</a>
 	    {{ end }}
-	    <br>
+        &nbsp&nbsp&nbsp&nbsp&nbsp
+        {{ with .Params.LinkedIn }}
+            <a href="{{ . }}">LinkedIn</a>
+        {{ end }}
+        &nbsp&nbsp&nbsp&nbsp&nbsp
 	    {{ with .Params.GitHub }}
           <a href="https://github.com/{{ . }}">GitHub</a>
 	    {{ end }}
-      <!-- <br>
-	    {{ with .Params.Linkedin }}
-          <a href="{{ . }}">LinkedIn</a>
-	    {{ end }} -->
 	    <br>
 	    {{ with .Params.Resume }}
 	    <a href="{{ . }}">Resume</a>
